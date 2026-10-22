@@ -38,9 +38,10 @@ const ogImage = abs('/og.png');
     {LOCALES.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={OG_LOCALE[l]} />)}
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta name="theme-color" content="#F3F6F8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0E1520" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#F2F7F5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F1715" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
