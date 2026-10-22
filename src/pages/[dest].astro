@@ -1,0 +1,10 @@
+---
+import Guide from '../components/Guide.astro';
+import { DESTS, guideExists, type Dest } from '../guides';
+
+export function getStaticPaths() {
+  return DESTS.filter((d) => guideExists(d, 'en')).map((dest) => ({ params: { dest } }));
+}
+const dest = Astro.params.dest as Dest;
+---
+<Guide lang="en" dest={dest} />

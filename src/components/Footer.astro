@@ -1,0 +1,25 @@
+---
+import { STRINGS, LOCALES, NATIVE_NAME, HREFLANG, homePath, CONTACT_EMAIL, PRIVACY_URL, type Locale } from '../i18n';
+import { DESTS, guidePath, guideExists, GUIDE_UI } from '../guides';
+
+interface Props { lang: Locale; alternates: Partial<Record<Locale, string>> }
+const { lang, alternates } = Astro.props;
+const t = STRINGS[lang];
+const g = GUIDE_UI[lang];
+const dests = DESTS.filter((d) => guideExists(d, lang));
+---
+<footer class="foot wrap">
+  <nav aria-label={g.guidesTitle}>
+    {dests.map((d) => <a href={guidePath(lang, d)}>{g.destName[d]}</a>)}
+  </nav>
+  <nav>
+    <a href={PRIVACY_URL}>{t.privacy}</a>
+    <a href={`mailto:${CONTACT_EMAIL}`}>{t.contact}</a>
+  </nav>
+  <nav class="foot-langs" aria-label={t.langLabel}>
+    {LOCALES.map((l) => (
+      <a href={alternates[l] ?? homePath(l)} hreflang={HREFLANG[l]} lang={HREFLANG[l]} aria-current={l === lang ? 'page' : undefined}>{NATIVE_NAME[l]}</a>
+    ))}
+  </nav>
+  <p>{t.madeBy}</p>
+</footer>

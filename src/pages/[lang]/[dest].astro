@@ -1,0 +1,14 @@
+---
+import Guide from '../../components/Guide.astro';
+import { OTHER_LOCALES, type Locale } from '../../i18n';
+import { DESTS, guideExists, type Dest } from '../../guides';
+
+export function getStaticPaths() {
+  return OTHER_LOCALES.flatMap((lang) =>
+    DESTS.filter((d) => guideExists(d, lang)).map((dest) => ({ params: { lang, dest } })),
+  );
+}
+const lang = Astro.params.lang as Locale;
+const dest = Astro.params.dest as Dest;
+---
+<Guide lang={lang} dest={dest} />

@@ -194,3 +194,44 @@ section h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; }
 .foot a { text-decoration: none; }
 .foot a:hover { color: var(--ink); text-decoration: underline; }
 .foot-langs a[aria-current] { color: var(--ink); font-weight: 600; }
+
+/* Travel guides: home section and links */
+.guides { padding-block: 56px; border-top: 1px solid var(--line); }
+.guides ul, .guide-links { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
+@media (min-width: 760px) { .guides ul, .guide-links { grid-template-columns: repeat(3, 1fr); } }
+.guides a, .guide-links a {
+  display: grid; gap: 6px; height: 100%; padding: 20px 22px; border-radius: 16px; text-decoration: none;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.guides a:hover, .guide-links a:hover { border-color: var(--brand); }
+.guides strong, .guide-links strong { font: 700 1.25rem/1.2 var(--display); color: var(--brand); }
+.guides span, .guide-links span { color: var(--muted); font-size: 0.97rem; }
+
+/* Guide page */
+.guide article { max-width: 760px; padding-block: 16px 64px; }
+.crumbs { font-size: 0.92rem; color: var(--muted); margin-bottom: 18px; }
+.crumbs a { color: var(--brand); text-decoration: none; }
+.guide h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); max-width: 18ch; }
+.guide :lang(zh-Hans) h1, .guide :lang(ja) h1, .guide :lang(ko) h1 { max-width: none; }
+.guide section { margin-top: 52px; }
+.guide section h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 18px; }
+.why { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.why li { padding-left: 22px; position: relative; }
+.why li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+.callout { margin-top: 40px; padding: 22px 24px; border-radius: 16px; background: var(--surface); border-left: 4px solid var(--brand); }
+.callout h2 { font-size: 1.2rem; margin-bottom: 8px; }
+.callout p { color: var(--muted); }
+.phrases { margin: 0; display: grid; gap: 10px; }
+.phrases div { display: grid; gap: 4px 20px; padding: 14px 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+@media (min-width: 640px) { .phrases div { grid-template-columns: 1fr 1fr; align-items: center; } }
+.phrases dt { font: 700 1.35rem/1.3 var(--body); }
+.phrases dd { margin: 0; display: grid; gap: 2px; }
+.roman { font-style: italic; color: var(--muted); font-size: 0.95rem; }
+.setup { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 14px; }
+.setup li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.setup li::before {
+  content: counter(s); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  border: 2px solid var(--brand); color: var(--brand); font: 700 0.95rem/1 var(--display);
+}
+.guide .faq { padding: 0; border: 0; }
+.guide .closing { border: 0; padding-block: 8px 0; text-align: left; }
