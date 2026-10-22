@@ -44,6 +44,8 @@ const ogImage = abs('/og.png');
     <link rel="icon" href="/icon-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Umami analytics: cookieless, counts visits on the real domain only -->
+    <script defer src="https://umami-production-2843.up.railway.app/script.js" data-website-id="39e94a58-4847-431c-b4ef-c9ba487257c3" data-domains="sidebytranslator.com"></script>
     {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
   </head>
   <body>
