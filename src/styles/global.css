@@ -84,7 +84,7 @@ h1 { font-size: clamp(2.4rem, 6.2vw, 4.4rem); font-weight: 750; max-width: 14ch;
 
 /* The phone: Sideby's face-to-face screen, the one memorable thing on the page */
 .phone {
-  margin: 0 auto; width: min(310px, 72vw); aspect-ratio: 9 / 19;
+  margin: 0 auto; width: min(290px, 72vw, calc(54vh - 90px)); min-width: 240px; aspect-ratio: 9 / 16.5;
   background: #0b0e0d; border-radius: 44px; padding: 10px;
   box-shadow: 0 30px 60px -22px rgb(19 51 43 / 0.5);
 }
@@ -94,7 +94,7 @@ h1 { font-size: clamp(2.4rem, 6.2vw, 4.4rem); font-weight: 750; max-width: 14ch;
 }
 .bar {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  background: var(--app-bar); padding: 30px 14px 10px; font-size: 0.78rem; font-weight: 600;
+  background: var(--app-bar); padding: 24px 14px 10px; font-size: 0.78rem; font-weight: 600;
 }
 .pair { letter-spacing: 0.02em; color: #c9d6d1; }
 .plane {
