@@ -235,3 +235,20 @@ section h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; }
 }
 .guide .faq { padding: 0; border: 0; }
 .guide .closing { border: 0; padding-block: 8px 0; text-align: left; }
+
+/* Legal page */
+.legal section { margin-top: 36px; }
+.legal section h2 { font-size: 1.3rem; margin-bottom: 10px; }
+.legal section p + p { margin-top: 10px; }
+.legal section p { color: var(--ink); max-width: 42em; }
+.legal a { color: var(--brand); }
+.legal .note { margin-top: 10px; }
+.legal .lede { margin-top: 18px; }
+
+/* Family pages */
+.moments { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.moments h3 { font-size: 1.15rem; }
+.moments p { color: var(--muted); margin-top: 4px; }
+
+/* Korean: don't break words in the middle */
+:lang(ko) h1, :lang(ko) h2, :lang(ko) h3 { word-break: keep-all; }

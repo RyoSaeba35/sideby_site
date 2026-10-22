@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import { STRINGS, LOCALES, HREFLANG, homePath, playUrl, PACKAGE_ID, type Locale } from '../i18n';
-import { GUIDES, GUIDE_UI, DESTS, DEST_LANG, DEST_PHRASES, guidePath, guideExists, type Dest } from '../guides';
+import { GUIDES, GUIDE_UI, DESTS, DEST_LANG, phrasesFor, guidePath, guideExists, type Dest } from '../guides';
 
 interface Props { lang: Locale; dest: Dest }
 const { lang, dest } = Astro.props;
@@ -18,7 +18,7 @@ const alternates = Object.fromEntries(
   LOCALES.filter((l) => guideExists(dest, l)).map((l) => [l, guidePath(l, dest)]),
 ) as Partial<Record<Locale, string>>;
 const others = DESTS.filter((d) => d !== dest && guideExists(d, lang));
-const step = (s: string) => s.replaceAll('{lang}', ui.langName[destLang]);
+const step = (s: string) => s.replaceAll('{lang}', ui.langName[destLang] ?? '');
 
 const jsonLd = [
   {
@@ -72,10 +72,10 @@ const jsonLd = [
       <section aria-labelledby="phr-h">
         <h2 id="phr-h">{ui.phrasesTitle}</h2>
         <dl class="phrases">
-          {DEST_PHRASES[dest].map((ph, i) => (
+          {phrasesFor(dest).map((ph, i) => (
             <div>
               <dt lang={HREFLANG[destLang]}>{ph.native}</dt>
-              <dd><span class="roman">{ph.roman}</span><span>{ui.phrases[i]}</span></dd>
+              <dd>{ph.roman && <span class="roman">{ph.roman}</span>}<span>{ui.phrases[i]}</span></dd>
             </div>
           ))}
         </dl>

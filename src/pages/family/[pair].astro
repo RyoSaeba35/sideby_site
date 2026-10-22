@@ -1,0 +1,10 @@
+---
+import Family from '../../components/Family.astro';
+import { PAIRS, familyExists, type PairKey } from '../../family/content';
+
+export function getStaticPaths() {
+  return PAIRS.filter((k) => familyExists(k, 'en')).map((pair) => ({ params: { pair } }));
+}
+const pair = Astro.params.pair as PairKey;
+---
+<Family lang="en" pair={pair} />

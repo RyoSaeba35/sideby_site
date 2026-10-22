@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { STRINGS, LOCALES, homePath, playUrl, type Locale } from '../i18n';
+import { FAMILY, FAMILY_UI, PAIRS, familyExists, familyPath, type PairKey } from '../family/content';
+
+interface Props { lang: Locale; pair: PairKey }
+const { lang, pair } = Astro.props;
+const t = STRINGS[lang];
+const ui = FAMILY_UI[lang]!;
+const page = FAMILY[pair][lang]!;
+const store = playUrl(lang);
+const site = Astro.site!;
+const path = familyPath(lang, pair);
+const alternates = Object.fromEntries(
+  LOCALES.filter((l) => familyExists(pair, l)).map((l) => [l, familyPath(l, pair)]),
+) as Partial<Record<Locale, string>>;
+const others = PAIRS.filter((k) => k !== pair && familyExists(k, lang));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Sideby', item: new URL(homePath(lang), site).href },
+      { '@type': 'ListItem', position: 2, name: ui.pairLabel[pair], item: new URL(path, site).href },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+const playIcon = '<svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path fill="currentColor" d="M1 1.2v19.6c0 .7.8 1.1 1.4.7l16.2-9.8c.6-.3.6-1.1 0-1.4L2.4.5C1.8.1 1 .5 1 1.2Z"/></svg>';
+---
+<Base lang={lang} path={path} alternates={alternates} title={page.metaTitle} description={page.metaDesc} jsonLd={jsonLd}>
+  <Header lang={lang} alternates={alternates} />
+  <main id="main" class="guide">
+    <article class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={homePath(lang)}>Sideby</a> <span aria-hidden="true">/</span> <span>{ui.pairLabel[pair]}</span>
+      </nav>
+      <h1>{page.h1}</h1>
+      <p class="lede">{page.intro}</p>
+      <a class="cta" href={store} rel="noopener"><Fragment set:html={playIcon} />{t.cta}</a>
+      <p class="note">{t.ctaNote}</p>
+
+      <section aria-labelledby="moments-h">
+        <h2 id="moments-h">{page.momentsTitle}</h2>
+        <ul class="moments">{page.moments.map((m) => <li><h3>{m.t}</h3><p>{m.d}</p></li>)}</ul>
+      </section>
+
+      <section aria-labelledby="fwhy-h">
+        <h2 id="fwhy-h">{ui.whyTitle}</h2>
+        <ul class="moments">{ui.why.map((m) => <li><h3>{m.t}</h3><p>{m.d}</p></li>)}</ul>
+      </section>
+
+      <section aria-labelledby="fsetup-h">
+        <h2 id="fsetup-h">{ui.setupTitle}</h2>
+        <ol class="setup">{ui.setupSteps.map((s) => <li>{s}</li>)}</ol>
+      </section>
+
+      <section class="faq" aria-labelledby="ffaq-h">
+        <h2 id="ffaq-h">{ui.faqTitle}</h2>
+        {page.faq.map((f) => (<details open><summary>{f.q}</summary><p>{f.a}</p></details>))}
+      </section>
+
+      <section class="closing">
+        <a class="cta" href={store} rel="noopener"><Fragment set:html={playIcon} />{t.cta}</a>
+        <p class="note">{t.ctaNote}</p>
+      </section>
+
+      {others.length > 0 && (
+        <section aria-labelledby="fothers-h">
+          <h2 id="fothers-h">{ui.othersTitle}</h2>
+          <ul class="guide-links">
+            {others.map((k) => <li><a href={familyPath(lang, k)}><strong>{ui.pairLabel[k]}</strong><span>{ui.pairCard[k]}</span></a></li>)}
+          </ul>
+        </section>
+      )}
+    </article>
+  </main>
+  <Footer lang={lang} alternates={alternates} />
+</Base>

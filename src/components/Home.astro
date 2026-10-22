@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import { DESTS, guidePath, guideExists, GUIDE_UI } from '../guides';
+import { FAMILY_UI, PAIRS, familyExists, familyPath } from '../family/content';
 import {
   STRINGS, LOCALES, NATIVE_NAME, HREFLANG, homePath, playUrl, price, PRICES,
   CONTACT_EMAIL, PACKAGE_ID, type Locale,
@@ -17,6 +18,8 @@ const site = Astro.site!;
 const alternates = Object.fromEntries(LOCALES.map((l) => [l, homePath(l)])) as Record<Locale, string>;
 const g = GUIDE_UI[lang];
 const dests = DESTS.filter((d) => guideExists(d, lang));
+const fui = FAMILY_UI[lang];
+const pairs = PAIRS.filter((k) => familyExists(k, lang));
 
 const asian: Locale[] = ['zh', 'ja', 'ko'];
 const european: Locale[] = ['en', 'fr', 'de', 'es', 'it', 'nl', 'pl', 'pt'];
@@ -131,6 +134,17 @@ const jsonLd = [
         ))}
       </ul>
     </section>
+
+    {fui && pairs.length > 0 && (
+      <section class="guides wrap" aria-labelledby="family-h">
+        <h2 id="family-h">{fui.sectionTitle}</h2>
+        <ul>
+          {pairs.map((k) => (
+            <li><a href={familyPath(lang, k)}><strong>{fui.pairLabel[k]}</strong><span>{fui.pairCard[k]}</span></a></li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <section class="pricing wrap" aria-labelledby="pricing-h">
       <h2 id="pricing-h">{t.pricingTitle}</h2>

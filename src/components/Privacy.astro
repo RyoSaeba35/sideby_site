@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { LOCALES, type Locale } from '../i18n';
+import { PRIVACY } from '../privacy/content';
+import { privacyPath } from '../i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const page = PRIVACY[lang];
+const path = privacyPath(lang);
+const alternates = Object.fromEntries(LOCALES.map((l) => [l, privacyPath(l)])) as Record<Locale, string>;
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+/** escape, then turn URLs, www. addresses and e-mails into links */
+const linkify = (s: string) =>
+  esc(s).replace(/(https?:\/\/[^\s)<]+|www\.[a-z0-9.-]+\.[a-z]{2,}|[\w.+-]+@[\w-]+\.[\w.]+)/gi, (m) => {
+    const href = m.includes('@') && !m.startsWith('http') ? `mailto:${m}` : m.startsWith('http') ? m : `https://${m}`;
+    return `<a href="${href}">${m}</a>`;
+  });
+---
+<Base lang={lang} path={path} alternates={alternates} title={page.metaTitle} description={page.metaDesc}>
+  <Header lang={lang} alternates={alternates} />
+  <main id="main" class="guide legal">
+    <article class="wrap">
+      <h1>{page.h1}</h1>
+      <p class="note">{page.updated}</p>
+      <p class="lede">{page.intro}</p>
+      {page.sections.map((s) => (
+        <section>
+          <h2>{s.h}</h2>
+          {s.p.map((p) => <p set:html={linkify(p)} />)}
+        </section>
+      ))}
+    </article>
+  </main>
+  <Footer lang={lang} alternates={alternates} />
+</Base>

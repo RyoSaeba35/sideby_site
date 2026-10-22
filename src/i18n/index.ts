@@ -10,7 +10,6 @@ export const STRINGS: Record<Locale, Strings> = { en, fr, de, es, it, nl, pl, pt
 
 export const PACKAGE_ID = 'com.galernestudio.sideby';
 export const CONTACT_EMAIL = 'galernestudio.support@proton.me';
-export const PRIVACY_URL = 'https://ryosaeba35.github.io/sideby/privacy.html';
 
 const PLAY_HL: Record<Locale, string> = {
   en: 'en', fr: 'fr', de: 'de', es: 'es', it: 'it', nl: 'nl', pl: 'pl', pt: 'pt-PT', zh: 'zh-CN', ja: 'ja', ko: 'ko',
@@ -20,6 +19,9 @@ export const playUrl = (l: Locale) =>
 
 /** Path of the home page for a locale: English at the root, others under /xx/ */
 export const homePath = (l: Locale) => (l === DEFAULT_LOCALE ? '/' : `/${l}/`);
+
+/** Privacy policy path for a locale */
+export const privacyPath = (l: Locale) => (l === DEFAULT_LOCALE ? '/privacy/' : `/${l}/privacy/`);
 
 export const OTHER_LOCALES = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
 

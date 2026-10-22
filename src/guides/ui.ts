@@ -1,14 +1,14 @@
 import type { Locale } from '../i18n';
 
-export type Dest = 'japan' | 'china' | 'korea';
-export type DestLang = 'ja' | 'zh' | 'ko';
+export type Dest = 'japan' | 'china' | 'korea' | 'france' | 'italy' | 'spain' | 'germany';
+export type DestLang = 'ja' | 'zh' | 'ko' | 'fr' | 'it' | 'es' | 'de';
 
 export interface GuideUI {
   guidesTitle: string;
-  destName: Record<Dest, string>;
-  guideCard: Record<Dest, string>;
+  destName: Partial<Record<Dest, string>>;
+  guideCard: Partial<Record<Dest, string>>;
   /** name of the destination's language, as used inside a sentence */
-  langName: Record<DestLang, string>;
+  langName: Partial<Record<DestLang, string>>;
   phrasesTitle: string;
   phrasesNote: string;
   setupTitle: string;
@@ -167,9 +167,9 @@ export const GUIDE_UI: Record<Locale, GuideUI> = {
   },
   zh: {
     guidesTitle: '旅行指南',
-    destName: { japan: '日本', china: '中国', korea: '韩国' },
-    guideCard: { japan: '地铁、山区和小餐馆，没有信号也能用。', china: '', korea: '市场、出租车和韩文菜单。' },
-    langName: { ja: '日语', zh: '中文', ko: '韩语' },
+    destName: { japan: '日本', china: '中国', korea: '韩国', france: '法国', italy: '意大利', spain: '西班牙', germany: '德国' },
+    guideCard: { japan: '地铁、山区和小餐馆，没有信号也能用。', korea: '市场、出租车和韩文菜单。', france: '面包店、药店和乡村小镇，不用联网。', italy: '家庭餐馆、小镇和海岛，信号不好也能用。', spain: '小酒馆、市场和村庄，用西班牙语交流。', germany: '小酒馆、药店和乡间车站，用德语沟通。' },
+    langName: { ja: '日语', zh: '中文', ko: '韩语', fr: '法语', it: '意大利语', es: '西班牙语', de: '德语' },
     phrasesTitle: '用得上的句子',
     phrasesNote: 'Sideby 的常用语（Pro）收录了 50 多句这样的句子，可以大字显示给对方看。',
     setupTitle: '出发前准备好',
@@ -185,9 +185,9 @@ export const GUIDE_UI: Record<Locale, GuideUI> = {
   },
   ja: {
     guidesTitle: '旅行ガイド',
-    destName: { japan: '日本', china: '中国', korea: '韓国' },
-    guideCard: { japan: '', china: 'VPN もローミングもなしで中国語を翻訳。', korea: '市場、タクシー、ハングルのメニュー。' },
-    langName: { ja: '日本語', zh: '中国語', ko: '韓国語' },
+    destName: { japan: '日本', china: '中国', korea: '韓国', france: 'フランス', italy: 'イタリア', spain: 'スペイン', germany: 'ドイツ' },
+    guideCard: { china: 'VPN もローミングもなしで中国語を翻訳。', korea: '市場、タクシー、ハングルのメニュー。', france: 'パン屋、薬局、地方の町でもネットなしで。', italy: 'トラットリア、小さな町、島でも。', spain: 'バル、市場、小さな村での会話に。', germany: '居酒屋、薬局、地方の駅で。' },
+    langName: { ja: '日本語', zh: '中国語', ko: '韓国語', fr: 'フランス語', it: 'イタリア語', es: 'スペイン語', de: 'ドイツ語' },
     phrasesTitle: '使えるフレーズ',
     phrasesNote: 'Sideby のフレーズ集（Pro）には、こうしたフレーズが 50 以上あり、大きな文字で相手に見せられます。',
     setupTitle: '出発前の準備',
@@ -203,9 +203,9 @@ export const GUIDE_UI: Record<Locale, GuideUI> = {
   },
   ko: {
     guidesTitle: '여행 가이드',
-    destName: { japan: '일본', china: '중국', korea: '한국' },
-    guideCard: { japan: '지하철, 산속, 작은 식당에서도 신호 없이.', china: 'VPN도 로밍도 없이 중국어 번역.', korea: '' },
-    langName: { ja: '일본어', zh: '중국어', ko: '한국어' },
+    destName: { japan: '일본', china: '중국', korea: '한국', france: '프랑스', italy: '이탈리아', spain: '스페인', germany: '독일' },
+    guideCard: { japan: '지하철, 산속, 작은 식당에서도 신호 없이.', china: 'VPN도 로밍도 없이 중국어 번역.', france: '빵집, 약국, 시골 마을에서도 인터넷 없이.', italy: '트라토리아, 작은 마을, 섬에서도.', spain: '바르, 시장, 작은 마을에서의 대화.', germany: '선술집, 약국, 시골 역에서.' },
+    langName: { ja: '일본어', zh: '중국어', ko: '한국어', fr: '프랑스어', it: '이탈리아어', es: '스페인어', de: '독일어' },
     phrasesTitle: '꼭 쓰게 될 문장',
     phrasesNote: 'Sideby 회화집(Pro)에는 이런 문장이 50개 이상 있어 큰 글씨로 상대에게 보여 줄 수 있습니다.',
     setupTitle: '출발 전에 준비하세요',
@@ -222,7 +222,7 @@ export const GUIDE_UI: Record<Locale, GuideUI> = {
 };
 
 /** The 5 phrases in each destination language, with romanization */
-export const DEST_PHRASES: Record<Dest, { native: string; roman: string }[]> = {
+export const DEST_PHRASES: Partial<Record<Dest, { native: string; roman: string }[]>> = {
   japan: [
     { native: 'すみません', roman: 'sumimasen' },
     { native: '駅はどこですか？', roman: 'eki wa doko desu ka?' },
