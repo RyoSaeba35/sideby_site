@@ -1,0 +1,51 @@
+---
+import '@fontsource-variable/bricolage-grotesque/wght.css';
+import '../styles/global.css';
+import { LOCALES, HREFLANG, OG_LOCALE, DEFAULT_LOCALE, homePath, type Locale } from '../i18n';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  description: string;
+  jsonLd?: object[];
+}
+const { lang, title, description, jsonLd = [] } = Astro.props;
+const site = Astro.site!;
+const abs = (p: string) => new URL(p, site).href;
+const canonical = abs(homePath(lang));
+const ogImage = abs('/og.png');
+---
+<!doctype html>
+<html lang={HREFLANG[lang]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {LOCALES.map((l) => <link rel="alternate" hreflang={HREFLANG[l]} href={abs(homePath(l))} />)}
+    <link rel="alternate" hreflang="x-default" href={abs(homePath(DEFAULT_LOCALE))} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sideby" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {LOCALES.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={OG_LOCALE[l]} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#F3F6F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0E1520" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
