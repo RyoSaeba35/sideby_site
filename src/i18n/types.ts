@@ -31,7 +31,7 @@ export interface Strings {
   heroText: string;
   cta: string;
   ctaNote: string;
-  demo: { mine: string; theirs: string; theirsLang: Locale };
+  demo: { mine: string; theirs: string; theirsLang: Locale; replyTheirs: string; replyMine: string };
   demoLabel: string;
   offlineBadge: string;
   stepsTitle: string;

@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby traduit vos conversations à voix haute, entièrement sur votre téléphone. Parlez votre langue, l\'autre entend la sienne, même en mode avion.',
   cta: 'Disponible sur Google Play',
   ctaNote: '2 jours offerts, tout débloqué, sans carte bancaire.',
-  demo: { mine: 'Vous pouvez me conseiller un plat ?', theirs: '你能给我推荐一道菜吗？', theirsLang: 'zh' },
-  demoLabel: 'Sideby en mode face à face : la moitié haute de l\'écran est tournée vers l\'autre personne.',
+  demo: { mine: 'Vous pouvez me conseiller un plat ?', theirs: '你能给我推荐一道菜吗？', theirsLang: 'zh', replyTheirs: '我推荐红烧肉。', replyMine: 'Je vous recommande le porc braisé.' },
+  demoLabel: 'Sideby en mode côte à côte : une seule conversation, un micro pour chacun.',
   offlineBadge: 'Mode avion',
   stepsTitle: 'Comment ça marche',
   steps: [

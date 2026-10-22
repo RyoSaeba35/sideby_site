@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby vertaalt je gesprekken hardop, volledig op je telefoon. Jij spreekt jouw taal, de ander hoort de zijne, zelfs in vliegtuigmodus.',
   cta: 'Ontdek het op Google Play',
   ctaNote: '2 dagen gratis, alles ontgrendeld, geen kaart nodig.',
-  demo: { mine: 'Kunt u een taxi voor ons bellen?', theirs: '¿Puede llamarnos un taxi?', theirsLang: 'es' },
-  demoLabel: 'Sideby in tegenover-modus: de bovenste helft van het scherm is naar de ander gedraaid.',
+  demo: { mine: 'Kunt u een taxi voor ons bellen?', theirs: '¿Puede llamarnos un taxi?', theirsLang: 'es', replyTheirs: 'Claro, llega en diez minutos.', replyMine: 'Natuurlijk, hij is er over tien minuten.' },
+  demoLabel: 'Sideby in naast-elkaar-modus: één gesprek, een microfoon per persoon.',
   offlineBadge: 'Vliegtuigmodus',
   stepsTitle: 'Zo werkt het',
   steps: [

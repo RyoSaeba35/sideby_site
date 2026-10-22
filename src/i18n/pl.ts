@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby tłumaczy Twoje rozmowy na głos, w całości na telefonie. Mówisz w swoim języku, rozmówca słyszy swój, nawet w trybie samolotowym.',
   cta: 'Pobierz z Google Play',
   ctaNote: '2 dni za darmo, wszystko odblokowane, bez karty.',
-  demo: { mine: 'Ile kosztuje bilet do centrum?', theirs: 'Wie viel kostet ein Ticket ins Zentrum?', theirsLang: 'de' },
-  demoLabel: 'Sideby w trybie twarzą w twarz: górna połowa ekranu jest obrócona do rozmówcy.',
+  demo: { mine: 'Ile kosztuje bilet do centrum?', theirs: 'Wie viel kostet ein Ticket ins Zentrum?', theirsLang: 'de', replyTheirs: 'Drei Euro, am Automaten.', replyMine: 'Trzy euro, w automacie.' },
+  demoLabel: 'Sideby w trybie obok siebie: jedna rozmowa, mikrofon dla każdej osoby.',
   offlineBadge: 'Tryb samolotowy',
   stepsTitle: 'Jak to działa',
   steps: [

@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby は会話をスマホの中だけで翻訳し、読み上げます。あなたは自分の言葉で話し、相手は相手の言葉で聞く。機内モードでも使えます。',
   cta: 'Google Play で入手',
   ctaNote: '2 日間無料、全機能が使えて、カード登録も不要。',
-  demo: { mine: 'おすすめの料理は何ですか？', theirs: 'What dish do you recommend?', theirsLang: 'en' },
-  demoLabel: '対面モードの Sideby：画面の上半分が相手の方を向きます。',
+  demo: { mine: 'おすすめの料理は何ですか？', theirs: 'What dish do you recommend?', theirsLang: 'en', replyTheirs: 'Try the grilled fish, it\'s very fresh.', replyMine: '焼き魚がおすすめです。とても新鮮ですよ。' },
+  demoLabel: '横並びモードの Sideby：ひとつの会話に、ひとりずつのマイク。',
   offlineBadge: '機内モード',
   stepsTitle: '使い方',
   steps: [

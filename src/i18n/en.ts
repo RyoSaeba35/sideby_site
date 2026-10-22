@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby translates your conversations out loud, entirely on your phone. Speak your language, the other person hears theirs, even in airplane mode.',
   cta: 'Get it on Google Play',
   ctaNote: '2 days free, everything unlocked, no card needed.',
-  demo: { mine: 'Where is the nearest pharmacy?', theirs: '一番近い薬局はどこですか？', theirsLang: 'ja' },
-  demoLabel: 'Sideby in face-to-face mode: the top half of the screen is turned toward the other person.',
+  demo: { mine: 'Where is the nearest pharmacy?', theirs: '一番近い薬局はどこですか？', theirsLang: 'ja', replyTheirs: 'まっすぐ行って右側です。', replyMine: 'Go straight, it\'s on the right.' },
+  demoLabel: 'Sideby in side-by-side mode: one conversation, one mic for each person.',
   offlineBadge: 'Airplane mode',
   stepsTitle: 'How it works',
   steps: [

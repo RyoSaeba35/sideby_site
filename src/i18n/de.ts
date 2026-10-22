@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby übersetzt Ihre Gespräche laut, komplett auf Ihrem Handy. Sie sprechen Ihre Sprache, Ihr Gegenüber hört seine, sogar im Flugmodus.',
   cta: 'Jetzt bei Google Play',
   ctaNote: '2 Tage kostenlos, alles freigeschaltet, ohne Karte.',
-  demo: { mine: 'Wie komme ich zum Bahnhof?', theirs: 'Come arrivo alla stazione?', theirsLang: 'it' },
-  demoLabel: 'Sideby im Gegenüber-Modus: Die obere Bildschirmhälfte ist zur anderen Person gedreht.',
+  demo: { mine: 'Wie komme ich zum Bahnhof?', theirs: 'Come arrivo alla stazione?', theirsLang: 'it', replyTheirs: 'Sempre dritto, cinque minuti a piedi.', replyMine: 'Immer geradeaus, fünf Minuten zu Fuß.' },
+  demoLabel: 'Sideby im Nebeneinander-Modus: ein Gespräch, ein Mikrofon pro Person.',
   offlineBadge: 'Flugmodus',
   stepsTitle: 'So funktioniert es',
   steps: [

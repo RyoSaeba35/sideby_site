@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby traduce tus conversaciones en voz alta, completamente en tu móvil. Habla tu idioma y la otra persona oye el suyo, incluso en modo avión.',
   cta: 'Disponible en Google Play',
   ctaNote: '2 días gratis, todo desbloqueado, sin tarjeta.',
-  demo: { mine: '¿A qué hora sale el último tren?', theirs: 'À quelle heure part le dernier train ?', theirsLang: 'fr' },
-  demoLabel: 'Sideby en modo cara a cara: la mitad superior de la pantalla mira hacia la otra persona.',
+  demo: { mine: '¿A qué hora sale el último tren?', theirs: 'À quelle heure part le dernier train ?', theirsLang: 'fr', replyTheirs: 'À 23 h 40, quai 2.', replyMine: 'A las 23:40, andén 2.' },
+  demoLabel: 'Sideby en modo lado a lado: una conversación, un micrófono para cada persona.',
   offlineBadge: 'Modo avión',
   stepsTitle: 'Cómo funciona',
   steps: [

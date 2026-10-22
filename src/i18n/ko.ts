@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby는 대화를 휴대폰 안에서 번역하고 소리 내어 읽어 줍니다. 나는 내 언어로 말하고, 상대는 자기 언어로 듣습니다. 비행기 모드에서도 됩니다.',
   cta: 'Google Play에서 받기',
   ctaNote: '2일 무료, 모든 기능 사용 가능, 카드 등록 불필요.',
-  demo: { mine: '이 근처에 맛있는 식당이 있어요?', theirs: 'Is there a good restaurant near here?', theirsLang: 'en' },
-  demoLabel: '마주 보기 모드의 Sideby: 화면 위쪽 절반이 상대방을 향합니다.',
+  demo: { mine: '이 근처에 맛있는 식당이 있어요?', theirs: 'Is there a good restaurant near here?', theirsLang: 'en', replyTheirs: 'Yes, there\'s a great one around the corner.', replyMine: '네, 모퉁이에 아주 좋은 곳이 있어요.' },
+  demoLabel: '나란히 모드의 Sideby: 하나의 대화, 각자 하나의 마이크.',
   offlineBadge: '비행기 모드',
   stepsTitle: '사용 방법',
   steps: [

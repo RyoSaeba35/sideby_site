@@ -8,8 +8,8 @@ const s: Strings = {
   heroText: 'Sideby 在手机上直接翻译你们的对话并朗读出来。你说你的语言，对方听到他的语言，开着飞行模式也可以。',
   cta: '在 Google Play 下载',
   ctaNote: '免费试用 2 天，全部功能解锁，无需绑卡。',
-  demo: { mine: '请问洗手间在哪里？', theirs: 'Où sont les toilettes, s\'il vous plaît ?', theirsLang: 'fr' },
-  demoLabel: 'Sideby 面对面模式：屏幕上半部分朝向对方。',
+  demo: { mine: '请问洗手间在哪里？', theirs: 'Où sont les toilettes, s\'il vous plaît ?', theirsLang: 'fr', replyTheirs: 'Au fond, à gauche.', replyMine: '在里面，左手边。' },
+  demoLabel: 'Sideby 并排模式：一段对话，每人一个麦克风。',
   offlineBadge: '飞行模式',
   stepsTitle: '使用方法',
   steps: [
