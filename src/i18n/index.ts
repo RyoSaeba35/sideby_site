@@ -29,4 +29,4 @@ const INTL: Record<Locale, string> = {
 export const price = (l: Locale, v: number) =>
   new Intl.NumberFormat(INTL[l], { style: 'currency', currency: 'EUR' }).format(v);
 
-export const PRICES = { stdWeek: 2.49, stdMonth: 4.99, proMonth: 6.99, proLife: 89.9 };
+export const PRICES = { stdWeek: 2.99, stdMonth: 5.99, proMonth: 6.99, proLife: 89.9 };
